@@ -1,0 +1,50 @@
+﻿@model Empleado
+@{
+    var departamento = (Departamento)ViewData["DEPARTAMENTO"];
+    var totalRegistros = (int)ViewData["REGISTROS"];
+    var posicion = (int)ViewData["POSICION"];
+}
+
+<h1>Empleados Registro Departamento</h1>
+
+<a asp-action="Index" class="btn btn-secondary m-3">Volver a departamentos</a>
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-danger">
+            <strong>Id Departamento:</strong> @departamento.Id
+        </div>
+        <div class="alert alert-info">
+            <strong>Nombre:</strong> @departamento.Nombre
+        </div>
+        <div class="alert alert-info">
+            <strong>Localidad:</strong> @departamento.Localidad
+        </div>
+
+        <h3 class="text-primary">Registro @posicion de @totalRegistros</h3>
+
+        <div class="mb-2">
+            <a href="@Url.Action("Departamento", new { posicion = 1, departamento = departamento.Id })">Primero</a>
+            <a href="@Url.Action("Departamento", new { posicion = posicion - 1, departamento = departamento.Id })">Anterior</a>
+            <a href="@Url.Action("Departamento", new { posicion = posicion + 1, departamento = departamento.Id })">Siguiente</a>
+            <a href="@Url.Action("Departamento", new { posicion = totalRegistros, departamento = departamento.Id })">Último</a>
+        </div>
+
+        <div class="alert alert-info">
+            <strong>Id Empleado:</strong> @Model.Id
+        </div>
+        <div class="alert alert-info">
+            <strong>Apellido:</strong> @Model.Apellido
+        </div>
+        <div class="alert alert-info">
+            <strong>Oficio:</strong> @Model.Oficio
+        </div>
+        <div class="alert alert-info">
+            <strong>Salario:</strong> @Model.Salario
+        </div>
+        <div class="alert alert-info">
+            <strong>Departamento:</strong> @Model.DepartamentoId
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@model List<Departamento>
+
+<h1>Lista de Departamentos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Localidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dept in Model)
+        {
+            <tr>
+                <td>@dept.Id</td>
+                <td>@dept.Nombre</td>
+                <td>@dept.Localidad</td>
+                <td>
+                    <a href="@Url.Action("Departamento", new { departamento = dept.Id })" class="btn btn-primary">Ver empleados</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
