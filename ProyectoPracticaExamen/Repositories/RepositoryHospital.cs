@@ -5,6 +5,20 @@ using Microsoft.Win32;
 using ProyectoPracticaExamen.Data;
 using ProyectoPracticaExamen.Models;
 
+
+//(@posicion int, @departamento int, @registros int out)
+//as
+//	select @registros = count(*) from EMP where DEPT_NO = @departamento
+
+//	select EMP_NO, APELLIDO, OFICIO, DIR, FECHA_ALT, SALARIO, COMISION, DEPT_NO from 
+//	(
+//		select ROW_NUMBER() OVER (ORDER BY APELLIDO, EMP_NO) as POSICION, EMP_NO, APELLIDO, OFICIO, DIR, FECHA_ALT, SALARIO, COMISION, DEPT_NO
+//		from EMP
+//		where DEPT_NO = @departamento
+//	) QUERY
+//	where POSICION = @posicion
+//go
+
 namespace ProyectoPracticaExamen.Repositories
 {
     public class RepositoryHospital
